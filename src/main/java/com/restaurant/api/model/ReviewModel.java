@@ -8,7 +8,7 @@ public class ReviewModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "review_id")
-    private int review_id;
+    private Integer review_id;
 
     @Column(name = "review")
     private String review;

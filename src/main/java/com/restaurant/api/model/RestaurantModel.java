@@ -10,22 +10,17 @@ public class RestaurantModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "restaurant_id")
-    private int id;
-
-    @Column(name = "name")
+    private Integer id;
     private String name;
-
-    @Column(name = "location")
     private String location;
 
-    @Column(name = "reviews")
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = ReviewModel.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "restaurant_reviews", referencedColumnName = "restaurant_id")
     private List<ReviewModel> reviews;
 
     public RestaurantModel(String name, String location) {
         this.name = name;
         this.location = location;
-
     }
 
     public String getName() {
